@@ -1,0 +1,38 @@
+# Nuclear Classification Configuration
+model:
+  name: 'nuclear_classifier'
+  backbone: 'resnet50'
+  pretrained: true
+  num_classes: 5
+  dropout: 0.3
+  feature_dim: 2048
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler:
+    name: 'cosine'
+    warmup_epochs: 5
+  loss:
+    name: 'cross_entropy'
+    class_weights: null
+
+data:
+  patch_size: [128, 128]
+  augmentation:
+    random_crop: true
+    horizontal_flip: true
+    vertical_flip: true
+    rotation_range: 360
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.2
+      hue: 0.1
+
+inference:
+  confidence_threshold: 0.7
+  batch_size: 64
+  test_time_augmentation: true

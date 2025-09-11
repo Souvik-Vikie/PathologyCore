@@ -1,0 +1,42 @@
+# Quantification Configuration
+analysis:
+  morphology:
+    features:
+      - area
+      - perimeter
+      - eccentricity
+      - solidity
+      - major_axis_length
+      - minor_axis_length
+    density:
+      enabled: true
+      unit: 'nuclei/mm^2'
+
+  statistics:
+    basic:
+      - mean
+      - median
+      - std
+      - min
+      - max
+    advanced:
+      - skewness
+      - kurtosis
+    distribution:
+      histogram_bins: 50
+
+output:
+  formats:
+    - csv
+    - json
+  visualization:
+    enabled: true
+    overlay: true
+    colormap: 'viridis'
+    dpi: 300
+
+reporting:
+  per_image: true
+  batch_summary: true
+  save_plots: true
+  export_format: 'pdf'
