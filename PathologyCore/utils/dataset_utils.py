@@ -99,18 +99,7 @@ def create_patch_dataset(image_dir: Path,
                         mask_dir: Optional[Path] = None,
                         patch_size: Tuple[int, int] = (256, 256),
                         stride: Optional[Tuple[int, int]] = None) -> NuclearDataset:
-    """
-    Create dataset from directory of whole slide images by extracting patches
-    
-    Args:
-        image_dir (Path): Directory containing images
-        mask_dir (Optional[Path]): Directory containing masks
-        patch_size (Tuple[int, int]): Size of patches to extract
-        stride (Optional[Tuple[int, int]]): Stride for patch extraction
-        
-    Returns:
-        NuclearDataset: Dataset of image patches
-    """
+   
     image_paths = sorted(Path(image_dir).glob('*.png'))
     mask_paths = None
     if mask_dir:
